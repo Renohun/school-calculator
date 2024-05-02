@@ -160,6 +160,8 @@ function op_minus(){
 }
 function C_button(){
     kijelzo = document.getElementById('display').innerHTML = ""
+    one.disabled = false; two.disabled = false; three.disabled = false; four.disabled = false; five.disabled = false; six.disabled = false; seven.disabled = false; eight.disabled = false; nine.disabled = false;
+                    comma.disabled = false; add.disabled = false; minus.disabled = false; divide.disabled = false; multiply.disabled = false; true; torles_gomb.disabled = false; equal.disabled = false; zero.disabled = false
 }
 
 function Torles(){
@@ -207,10 +209,15 @@ function szamitas(){
             }
             case "/":{
                 if(num_2 == "0"){
-                    kijelzo = document.getElementById('display').innerHTML = "Math error"; break
+                    kijelzo = document.getElementById('display').innerHTML = "Math error"; 
+                    one.disabled = true; two.disabled = true; three.disabled = true; four.disabled = true; five.disabled = true; six.disabled = true; seven.disabled = true; eight.disabled = true; nine.disabled = true;
+                    comma.disabled = true; add.disabled = true; minus.disabled = true; divide.disabled = true; multiply.disabled = true; torles_gomb.disabled = true; equal.disabled = true; zero.disabled = true;
+                    break
                 }
                 else if (num_2 == ""){
-                    kijelzo = document.getElementById('display').innerHTML = "Syntax error"; break
+                    kijelzo = document.getElementById('display').innerHTML = "Syntax error";
+                    one.disabled = true; two.disabled = true; three.disabled = true; four.disabled = true; five.disabled = true; six.disabled = true; seven.disabled = true; eight.disabled = true; nine.disabled = true;
+                    comma.disabled = true; add.disabled = true; minus.disabled = true; divide.disabled = true; multiply.disabled = true; true; torles_gomb.disabled = true; equal.disabled = true; zero.disabled = true; break
                 }
                 else{
                     result = String(Number(num_1) / Number(num_2)) 
