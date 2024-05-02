@@ -208,9 +208,17 @@ function szamitas(){
                 kijelzo = document.getElementById('display').innerHTML = result; break
             }
             case "/":{
-                result = String(Number(num_1) / Number(num_2)) 
-                console.log(result)
-                kijelzo = document.getElementById('display').innerHTML = result; break
+                if(num_2 == "0"){
+                    kijelzo = document.getElementById('display').innerHTML = "Math error"; break
+                }
+                else if (num_2 == ""){
+                    kijelzo = document.getElementById('display').innerHTML = "Syntax error"; break
+                }
+                else{
+                    result = String(Number(num_1) / Number(num_2)) 
+                    console.log(result)
+                    kijelzo = document.getElementById('display').innerHTML = result; break
+                }
             }
             case "*":{
                 result = String(Number(num_1) * Number(num_2)) 
