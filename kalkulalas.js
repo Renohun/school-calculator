@@ -199,12 +199,10 @@ function szamitas(){
         switch(op){
             case "+":{
                result = String(Number(num_1) + Number(num_2)) 
-               console.log(result)
                kijelzo = document.getElementById('display').innerHTML = result; break
             }
             case "-":{
                 result = String(Number(num_1) - Number(num_2)) 
-                console.log(result)
                 kijelzo = document.getElementById('display').innerHTML = result; break
             }
             case "/":{
@@ -216,13 +214,11 @@ function szamitas(){
                 }
                 else{
                     result = String(Number(num_1) / Number(num_2)) 
-                    console.log(result)
                     kijelzo = document.getElementById('display').innerHTML = result; break
                 }
             }
             case "*":{
-                result = String(Number(num_1) * Number(num_2)) 
-                console.log(result)
+                result = String(Number(num_1) * Number(num_2))  
                 kijelzo = document.getElementById('display').innerHTML = result; break
             }
         }
