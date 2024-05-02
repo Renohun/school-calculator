@@ -66,29 +66,98 @@ function char_com (){
 }
 
 function op_div(){
-    if(kijelzo.length < 34){
-        kijelzo = document.getElementById('display').innerHTML += "/"
+    let check = false 
+
+    for(let i = 0; i < kijelzo.length; i++){
+
+        if(kijelzo[i] == "+" || kijelzo[i] == "-" || kijelzo[i] == "/" || kijelzo[i] == "*"){
+            check = true
+            break
         }
+    }
+
+    if(check)
+    {
+        szamitas()
+        kijelzo = document.getElementById('display').innerHTML += "/"   
+    }else
+    {
+        if(kijelzo.length < 34){
+            kijelzo = document.getElementById('display').innerHTML += "/"
+            }
+    }
 }
 
 function op_mul(){
-    if(kijelzo.length < 34){
-        kijelzo = document.getElementById('display').innerHTML += "*"
-       }
+    let check = false 
+
+    for(let i = 0; i < kijelzo.length; i++){
+
+        if(kijelzo[i] == "+" || kijelzo[i] == "-" || kijelzo[i] == "/" || kijelzo[i] == "*"){
+            check = true
+            break
+        }
+    }
+
+    if(check)
+    {
+        szamitas()
+        kijelzo = document.getElementById('display').innerHTML += "*"   
+    }else
+    {
+        if(kijelzo.length < 34){
+            kijelzo = document.getElementById('display').innerHTML += "*"
+            }
+    }
 }
 
 function op_add(){
-    if(kijelzo.length < 34){
-        kijelzo = document.getElementById('display').innerHTML += "+"
+
+    let check = false 
+
+    for(let i = 0; i < kijelzo.length; i++){
+
+        if(kijelzo[i] == "+" || kijelzo[i] == "-" || kijelzo[i] == "/" || kijelzo[i] == "*"){
+            check = true
+            break
         }
+    }
+
+    if(check)
+    {
+        szamitas()
+        kijelzo = document.getElementById('display').innerHTML += "+"   
+    }else
+    {
+        if(kijelzo.length < 34){
+            kijelzo = document.getElementById('display').innerHTML += "+"
+            }
+    }
 }
 
 function op_minus(){
-    if(kijelzo.length < 34){
-        kijelzo = document.getElementById('display').innerHTML += "-"
-        }
-}
 
+    let check = false 
+
+    for(let i = 0; i < kijelzo.length; i++){
+
+        if(kijelzo[i] == "+" || kijelzo[i] == "-" || kijelzo[i] == "/" || kijelzo[i] == "*"){
+            check = true
+            break
+        }
+    }
+
+    if(check)
+    {
+        szamitas()
+        kijelzo = document.getElementById('display').innerHTML += "-"   
+    }else
+    {
+        if(kijelzo.length < 34){
+            kijelzo = document.getElementById('display').innerHTML += "-"
+            }
+    }
+}
 function C_button(){
     kijelzo = document.getElementById('display').innerHTML = ""
 }
@@ -97,15 +166,59 @@ function Torles(){
     kijelzo = document.getElementById('display').innerHTML = kijelzo.slice(0, -1)
 }
 
-function szamitas (){
-    try{
-        let result = eval(kijelzo)
-        document.getElementById('display').innerHTML = result
-    }
-    catch(error){
-        document.getElementById('display').innerHTML = "Error"
+function szamitas(){
+
+
+    let op_check_in_eq = false
+    
+    for(let i = 0; i < kijelzo.length; i++){
+        if(kijelzo[i] == "+" || kijelzo[i] == "-" || kijelzo[i] == "/" || kijelzo[i] == "*"){
+            op_check_in_eq = true; break
+        }
     }
 
+    if(op_check_in_eq)
+    {
+        let num_1 = ""; let num_2 = ""; let i = 0;
+
+  
+        while(kijelzo[i] != "+" && kijelzo[i] != "-" && kijelzo[i] != "*" && kijelzo[i] != "/"){
+    
+            num_1 += kijelzo[i]
+            i++
+    
+        } let op = kijelzo[i]; i++; 
+        
+        while(i < kijelzo.length)
+        {
+            num_2 += kijelzo[i]; i++
+        }
+    
+        let result = ""
+    
+        switch(op){
+            case "+":{
+               result = String(Number(num_1) + Number(num_2)) 
+               console.log(result)
+               kijelzo = document.getElementById('display').innerHTML = result; break
+            }
+            case "-":{
+                result = String(Number(num_1) - Number(num_2)) 
+                console.log(result)
+                kijelzo = document.getElementById('display').innerHTML = result; break
+            }
+            case "/":{
+                result = String(Number(num_1) / Number(num_2)) 
+                console.log(result)
+                kijelzo = document.getElementById('display').innerHTML = result; break
+            }
+            case "*":{
+                result = String(Number(num_1) * Number(num_2)) 
+                console.log(result)
+                kijelzo = document.getElementById('display').innerHTML = result; break
+            }
+        }
+    }
 }
 
 let kijelzo = ""
