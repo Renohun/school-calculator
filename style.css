@@ -39,6 +39,9 @@ body{
 input:active{
     color: aliceblue;
 }
+input:disabled{
+    color: grey;
+}
 p{
     color: aliceblue;
     font-size:  xx-large;
